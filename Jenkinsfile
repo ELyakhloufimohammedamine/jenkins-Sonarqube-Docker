@@ -41,9 +41,9 @@ pipeline {
                     sh '''
                     ssh -o StrictHostKeyChecking=no ec2-user@$AWS_EC2_IP << EOF
                         docker pull $DOCKER_REPO
-                        docker stop mon-projet || true
-                        docker rm mon-projet || true
-                        docker run -d --name mon-projet -p 80:80 $DOCKER_REPO
+                        docker stop mywebsite || true
+                        docker rm mywebsite || true
+                        docker run -d --name mywebsite -p 80:80 $DOCKER_REPO
                     EOF
                     '''
                 }
